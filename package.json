@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "deploy": "gh-pages -d Pokemon-index",
+    "deploy": "npm run copy404; gh-pages -d Pokemon-index",
+    "copy404": "cp Pokemon-index/index.html Pokemon-index/404.html",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
