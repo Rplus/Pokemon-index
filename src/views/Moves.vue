@@ -5,7 +5,7 @@
     <h3>switcher:</h3>
     <label>
       is pvp?:
-      <input type="checkbox" v-model="isPvp">
+      <input type="checkbox" v-model="isPvp" />
     </label>
 
     <h3>filter:</h3>
@@ -17,6 +17,16 @@
         <h4>{{ i }}</h4>
         <ol>
           <li v-for="m in movetype" :key="m.templateId">
+            <router-link
+              :to="{
+                name: 'move',
+                params: {
+                  mid: `${m.nid}-${m.mid.toLowerCase()}`,
+                },
+              }"
+            >
+              move:{{ m.nid }}
+            </router-link>
             <pre>{{ m }}</pre>
           </li>
         </ol>
@@ -26,28 +36,28 @@
 </template>
 
 <script>
-
 // @ is an alias to /src
 export default {
-  name: "moves",
+  name: 'moves',
   data() {
-    let _moves = this.$store.state.moves;
+    let _moves = this.$store.state.moves.map(m => {
+      m.nid = (+m.templateId.slice(1, 5)).toString();
+      return m;
+    });
     let moves = {
       fast: _moves.filter(m => /_FAST$/.test(m.templateId)),
       charge: _moves.filter(m => !/_FAST$/.test(m.templateId)),
     };
     return {
       isPvp: false,
-      moves
+      moves,
     };
   },
-  computed: {
-  }
 };
 </script>
 
 <style>
-  .moves-section {
-    display: flex;
-  }
+.moves-section {
+  display: flex;
+}
 </style>
