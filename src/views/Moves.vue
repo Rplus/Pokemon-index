@@ -40,13 +40,10 @@
 export default {
   name: 'moves',
   data() {
-    let _moves = this.$store.state.moves.map(m => {
-      m.nid = (+m.templateId.slice(1, 5)).toString();
-      return m;
-    });
+    let _moves = this.$store.state.moves;
     let moves = {
-      fast: _moves.filter(m => /_FAST$/.test(m.templateId)),
-      charge: _moves.filter(m => !/_FAST$/.test(m.templateId)),
+      fast: _moves.filter(m => m.isFast),
+      charge: _moves.filter(m => !m.isFast),
     };
     return {
       isPvp: false,
