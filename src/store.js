@@ -7,6 +7,15 @@ data.moves.forEach(m => {
   m.isFast = /_FAST$/.test(m.templateId);
 });
 
+data.pms.forEach(dex => {
+  dex.pms.forEach(pm => {
+    pm.pid = pm.templateId.replace(
+      `_POKEMON_${pm.pokemonSettings.pokemonId}`,
+      ''
+    );
+  });
+});
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({

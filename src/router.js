@@ -17,20 +17,42 @@ export default new Router({
       path: '/moves',
       name: 'moves',
       // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
+      // this generates a separate chunk (move.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ './views/Moves.vue'),
+        import(
+          /* webpackChunkName: "move" */
+          './views/Moves.vue'
+        ),
     },
     {
       path: '/move/:mid',
       name: 'move',
       props: true,
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ './views/Move.vue'),
+        import(
+          /* webpackChunkName: "move" */
+          './views/Move.vue'
+        ),
+    },
+    {
+      path: '/pokemons',
+      name: 'pokemons',
+      component: () =>
+        import(
+          /* webpackChunkName: "pokemon" */
+          './views/Pokemons.vue'
+        ),
+    },
+    {
+      path: '/pokemon/:pid',
+      name: 'pokemon',
+      props: true,
+      component: () =>
+        import(
+          /* webpackChunkName: "pokemon" */
+          './views/Pokemon.vue'
+        ),
     },
   ],
 });

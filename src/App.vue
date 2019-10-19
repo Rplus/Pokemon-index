@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/moves">moves</router-link>
+      <router-link to="/">/Home</router-link>
+      |
+      <router-link to="/pokemons">/pokemons</router-link>
+      |
+      <router-link to="/moves">/moves</router-link>
     </div>
     <router-view />
   </div>
@@ -26,5 +29,9 @@
       color: #42b983;
     }
   }
+}
+
+.is-active {
+  color: red;
 }
 </style>
