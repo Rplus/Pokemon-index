@@ -30,7 +30,9 @@ export default {
     let pms = [];
     this.$store.state.pms.forEach(dex => {
       dex.pms.forEach(j => {
-        let movepool = (move.isFast ? j.pokemonSettings.quickMoves : j.pokemonSettings.cinematicMoves);
+        let movepool = move.isFast
+          ? j.pokemonSettings.quickMoves
+          : j.pokemonSettings.cinematicMoves;
         if (!movepool) {
           return;
         }
