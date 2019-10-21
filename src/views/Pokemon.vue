@@ -26,28 +26,31 @@ export default {
   name: 'moves',
   props: ['pid'],
   data() {
-    let [pmDex, pmType] = this.pid.split('_');
-    let pmSet = this.$store.state.pms.find(
-      dex => dex.templateId.indexOf(pmDex) !== -1
-    );
-    pmType;
+    let _pid = this.pid;
+    let { pmSet, pid } = this.getPmSet(this.pid);
 
-    // console.log({ pid }, this.$store.state.pms);
-    // let pms;
-    // if (pmDex) {
-    //   pms = pmDex.pms;
-    // }
-    // console.log(pms);
-    // let pm = this.$store.state.pms.find(m =>
-    //   new RegExp(`^V${pid}`).test(m.templateId)
-    // );
-    // let pms = [];
+    if (_pid !== pid) {
+      this.$router.push({ name: 'pokemon', params: { pid } });
+    }
 
     return {
-      // isPvp: false,
       pmSet,
-      // pms,
     };
+  },
+  methods: {
+    getPmSet: function(pid = this.pid) {
+      let [pmDex, pmType] = pid.split('_');
+      let pmSet = this.$store.state.pms.find(
+        dex => dex.templateId.indexOf(pmDex) !== -1
+      );
+      if (!pmSet) {
+        return this.getPmSet('V0001_NORMAL');
+      }
+      if (!pmSet.pms.some(pm => pm.pid === pid)) {
+        pid = pmSet.pms[0].pid;
+      }
+      return { pmSet, pmType, pid };
+    },
   },
 };
 </script>
