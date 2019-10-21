@@ -8,72 +8,13 @@
       <input type="checkbox" v-model="isPvp" />
     </label>
 
-    <details>
-      <summary>
-        <strong>filter:</strong>
-      </summary>
-      <div>
-        <ul>
-          <li v-for="type in types" :key="type">
-            <label>
-              <input
-                type="checkbox"
-                name="type"
-                :value="type"
-                v-model="checkedTypes"
-              />
-              {{ type }}
-            </label>
-          </li>
-        </ul>
-      </div>
-    </details>
+    <Filters v-on:update-filters="updateFilters" />
 
-    <details open>
-      <summary>
-        <strong>sort:</strong>
-      </summary>
-      <dl>
-        <dt>
-          dir:
-        </dt>
-
-        <dd>
-          <label v-for="dir in sortDirs" :key="dir.value">
-            <input
-              type="radio"
-              name="sortDir"
-              :value="dir.value"
-              v-model.number="sortDir"
-            />
-            {{ dir.title }}
-          </label>
-        </dd>
-
-        <dt>
-          type:
-        </dt>
-
-        <dd>
-          <div>
-            <label
-              v-for="type in sortTypes"
-              v-show="(!isPvp && type.isFast) || (isPvp && type.isCharge)"
-              :key="type.value"
-            >
-              <input
-                type="radio"
-                :value="type.value"
-                name="sortType"
-                v-model="sortType"
-              />
-              {{ type.title }}
-              <br />
-            </label>
-          </div>
-        </dd>
-      </dl>
-    </details>
+    <Sort
+      :sorts="sortTypes"
+      :switcher="Number(isPvp)"
+      v-on:update-sort="updateSort"
+    />
 
     <main class="moves-section">
       <section v-for="(movetype, i) in moves" :key="i">
@@ -100,13 +41,18 @@
 
 <script>
 // @ is an alias to /src
+import Filters from '@/components/Filters.vue';
+import Sort from '@/components/Sort.vue';
 import { deepFind } from '@/u.js';
 
 export default {
   name: 'moves',
+  components: {
+    Filters,
+    Sort,
+  },
   data() {
     let _moves = this.$store.state.moves;
-    let types = this.$store.state.types;
     let allMoves = {
       fast: _moves.filter(m => m.isFast),
       charge: _moves.filter(m => !m.isFast),
@@ -119,38 +65,26 @@ export default {
       {
         title: 'nid',
         value: 'nid',
-        isFast: true,
-        isCharge: true,
+        show: [0, 1],
       },
       ...Object.keys(sortTypes.data).map(p => ({
         title: `data.${p}`,
         value: `data.${p}`,
-        isFast: true,
+        show: [0],
       })),
       ...Object.keys(sortTypes.pvpData).map(p => ({
         title: `pvpData.${p}`,
         value: `pvpData.${p}`,
-        isCharge: true,
+        show: [1],
       })),
     ];
 
     return {
       isPvp: false,
       allMoves,
-      types,
       checkedTypes: [],
       sortType: 'nid',
       sortDir: 1,
-      sortDirs: [
-        {
-          title: 'asc',
-          value: 1,
-        },
-        {
-          title: 'desc',
-          value: -1,
-        },
-      ],
       sortTypes,
     };
   },
@@ -161,10 +95,20 @@ export default {
       }
       return moves.filter(m => types.indexOf(m.type) !== -1);
     },
+
     sortMoves: function(moves, sortDir, sortType) {
       return moves.sort(
         (a, b) => (deepFind(a, sortType) - deepFind(b, sortType)) * sortDir
       );
+    },
+
+    updateFilters: function(filters) {
+      this.checkedTypes = filters;
+    },
+
+    updateSort: function(sort) {
+      this.sortType = sort.type;
+      this.sortDir = sort.dir;
     },
   },
   computed: {

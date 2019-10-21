@@ -1,6 +1,7 @@
 <template>
   <div class="pms">
     <h3>filter:</h3>
+    <Filters v-on:update-filters="updateFilters" />
     <h3>sort:</h3>
     <hr />
     <ol>
@@ -28,13 +29,25 @@
 </template>
 
 <script>
+import Filters from '@/components/Filters.vue';
+
 export default {
   name: 'pokemons',
+  components: {
+    Filters,
+  },
   data() {
     let pms = this.$store.state.pms;
     return {
       pms,
+      checkedTypes: [],
     };
+  },
+  methods: {
+    updateFilters: function(filters) {
+      this.checkedTypes = filters;
+      console.log(this.checkedTypes);
+    },
   },
 };
 </script>
