@@ -8,9 +8,72 @@
       <input type="checkbox" v-model="isPvp" />
     </label>
 
-    <h3>filter:</h3>
+    <details>
+      <summary>
+        <strong>filter:</strong>
+      </summary>
+      <div>
+        <ul>
+          <li v-for="type in types" :key="type">
+            <label>
+              <input
+                type="checkbox"
+                name="type"
+                :value="type"
+                v-model="checkedTypes"
+              />
+              {{ type }}
+            </label>
+          </li>
+        </ul>
+      </div>
+    </details>
 
-    <h3>sort:</h3>
+    <details open>
+      <summary>
+        <strong>sort:</strong>
+      </summary>
+      <dl>
+        <dt>
+          dir:
+        </dt>
+
+        <dd>
+          <label v-for="dir in sortDirs" :key="dir.value">
+            <input
+              type="radio"
+              name="sortDir"
+              :value="dir.value"
+              v-model.number="sortDir"
+            />
+            {{ dir.title }}
+          </label>
+        </dd>
+
+        <dt>
+          type:
+        </dt>
+
+        <dd>
+          <div>
+            <label
+              v-for="type in sortTypes"
+              v-show="(!isPvp && type.isFast) || (isPvp && type.isCharge)"
+              :key="type.value"
+            >
+              <input
+                type="radio"
+                :value="type.value"
+                name="sortType"
+                v-model="sortType"
+              />
+              {{ type.title }}
+              <br />
+            </label>
+          </div>
+        </dd>
+      </dl>
+    </details>
 
     <main class="moves-section">
       <section v-for="(movetype, i) in moves" :key="i">
@@ -37,18 +100,84 @@
 
 <script>
 // @ is an alias to /src
+import { deepFind } from '@/u.js';
+
 export default {
   name: 'moves',
   data() {
     let _moves = this.$store.state.moves;
-    let moves = {
+    let types = this.$store.state.types;
+    let allMoves = {
       fast: _moves.filter(m => m.isFast),
       charge: _moves.filter(m => !m.isFast),
     };
+    let sortTypes = _moves.reduce((all, m) => {
+      return { ...all, ...m };
+    }, {});
+
+    sortTypes = [
+      {
+        title: 'nid',
+        value: 'nid',
+        isFast: true,
+        isCharge: true,
+      },
+      ...Object.keys(sortTypes.data).map(p => ({
+        title: `data.${p}`,
+        value: `data.${p}`,
+        isFast: true,
+      })),
+      ...Object.keys(sortTypes.pvpData).map(p => ({
+        title: `pvpData.${p}`,
+        value: `pvpData.${p}`,
+        isCharge: true,
+      })),
+    ];
+
     return {
       isPvp: false,
-      moves,
+      allMoves,
+      types,
+      checkedTypes: [],
+      sortType: 'nid',
+      sortDir: 1,
+      sortDirs: [
+        {
+          title: 'asc',
+          value: 1,
+        },
+        {
+          title: 'desc',
+          value: -1,
+        },
+      ],
+      sortTypes,
     };
+  },
+  methods: {
+    moveFilter: function(moves, types) {
+      if (!types.length) {
+        return moves;
+      }
+      return moves.filter(m => types.indexOf(m.type) !== -1);
+    },
+    sortMoves: function(moves, sortDir, sortType) {
+      return moves.sort(
+        (a, b) => (deepFind(a, sortType) - deepFind(b, sortType)) * sortDir
+      );
+    },
+  },
+  computed: {
+    moves: function() {
+      return Object.keys(this.allMoves).reduce((all, k) => {
+        all[k] = this.sortMoves(
+          this.moveFilter(this.allMoves[k], this.checkedTypes),
+          this.sortDir,
+          this.sortType
+        );
+        return all;
+      }, {});
+    },
   },
 };
 </script>
