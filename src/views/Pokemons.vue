@@ -1,8 +1,8 @@
 <template>
   <div class="pms">
-    <router-link to="/pokemon/1">
-      /pokemon/1
-    </router-link>
+    <h3>filter:</h3>
+    <h3>sort:</h3>
+    <hr />
     <ol>
       <li v-for="dex in pms" :key="dex.templateId">
         <h3>{{ dex.templateId }}</h3>
