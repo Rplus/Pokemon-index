@@ -12,6 +12,16 @@
           /
           <span>{{ pm.pokemonSettings.pokemonId }}</span>
         </summary>
+        <router-link
+          :to="{
+            name: 'pokemon',
+            params: {
+              pid: pm.pid,
+            },
+          }"
+        >
+          /pokemon/{{ pm.pid }}
+        </router-link>
         <pre>{{ pm }}</pre>
       </details>
     </div>
