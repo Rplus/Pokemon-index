@@ -1,0 +1,158 @@
+{
+  "$T_NORMAL": {
+    "$T_ROCK": -1,
+    "$T_GHOST": -2,
+    "$T_STEEL": -1
+  },
+  "$T_FIGHTING": {
+    "$T_NORMAL": 1,
+    "$T_FLYING": -1,
+    "$T_POISON": -1,
+    "$T_ROCK": 1,
+    "$T_BUG": -1,
+    "$T_GHOST": -2,
+    "$T_STEEL": 1,
+    "$T_PSYCHIC": -1,
+    "$T_ICE": 1,
+    "$T_DARK": 1,
+    "$T_FAIRY": -1
+  },
+  "$T_FLYING": {
+    "$T_FIGHTING": 1,
+    "$T_ROCK": -1,
+    "$T_BUG": 1,
+    "$T_STEEL": -1,
+    "$T_GRASS": 1,
+    "$T_ELECTRIC": -1
+  },
+  "$T_POISON": {
+    "$T_POISON": -1,
+    "$T_GROUND": -1,
+    "$T_ROCK": -1,
+    "$T_GHOST": -1,
+    "$T_STEEL": -2,
+    "$T_GRASS": 1,
+    "$T_FAIRY": 1
+  },
+  "$T_GROUND": {
+    "$T_FLYING": -2,
+    "$T_POISON": 1,
+    "$T_ROCK": 1,
+    "$T_BUG": -1,
+    "$T_STEEL": 1,
+    "$T_FIRE": 1,
+    "$T_GRASS": -1,
+    "$T_ELECTRIC": 1
+  },
+  "$T_ROCK": {
+    "$T_FIGHTING": -1,
+    "$T_FLYING": 1,
+    "$T_GROUND": -1,
+    "$T_BUG": 1,
+    "$T_STEEL": -1,
+    "$T_FIRE": 1,
+    "$T_ICE": 1
+  },
+  "$T_BUG": {
+    "$T_FIGHTING": -1,
+    "$T_FLYING": -1,
+    "$T_POISON": -1,
+    "$T_GHOST": -1,
+    "$T_STEEL": -1,
+    "$T_FIRE": -1,
+    "$T_GRASS": 1,
+    "$T_PSYCHIC": 1,
+    "$T_DARK": 1,
+    "$T_FAIRY": -1
+  },
+  "$T_GHOST": {
+    "$T_NORMAL": -2,
+    "$T_GHOST": 1,
+    "$T_PSYCHIC": 1,
+    "$T_DARK": -1
+  },
+  "$T_STEEL": {
+    "$T_ROCK": 1,
+    "$T_STEEL": -1,
+    "$T_FIRE": -1,
+    "$T_WATER": -1,
+    "$T_ELECTRIC": -1,
+    "$T_ICE": 1,
+    "$T_FAIRY": 1
+  },
+  "$T_FIRE": {
+    "$T_ROCK": -1,
+    "$T_BUG": 1,
+    "$T_STEEL": 1,
+    "$T_FIRE": -1,
+    "$T_WATER": -1,
+    "$T_GRASS": 1,
+    "$T_ICE": 1,
+    "$T_DRAGON": -1
+  },
+  "$T_WATER": {
+    "$T_GROUND": 1,
+    "$T_ROCK": 1,
+    "$T_FIRE": 1,
+    "$T_WATER": -1,
+    "$T_GRASS": -1,
+    "$T_DRAGON": -1
+  },
+  "$T_GRASS": {
+    "$T_FLYING": -1,
+    "$T_POISON": -1,
+    "$T_GROUND": 1,
+    "$T_ROCK": 1,
+    "$T_BUG": -1,
+    "$T_STEEL": -1,
+    "$T_FIRE": -1,
+    "$T_WATER": 1,
+    "$T_GRASS": -1,
+    "$T_DRAGON": -1
+  },
+  "$T_ELECTRIC": {
+    "$T_FLYING": 1,
+    "$T_GROUND": -2,
+    "$T_WATER": 1,
+    "$T_GRASS": -1,
+    "$T_ELECTRIC": -1,
+    "$T_DRAGON": -1
+  },
+  "$T_PSYCHIC": {
+    "$T_FIGHTING": 1,
+    "$T_POISON": 1,
+    "$T_STEEL": -1,
+    "$T_PSYCHIC": -1,
+    "$T_DARK": -2
+  },
+  "$T_ICE": {
+    "$T_FLYING": 1,
+    "$T_GROUND": 1,
+    "$T_STEEL": -1,
+    "$T_FIRE": -1,
+    "$T_WATER": -1,
+    "$T_GRASS": 1,
+    "$T_ICE": -1,
+    "$T_DRAGON": 1
+  },
+  "$T_DRAGON": {
+    "$T_STEEL": -1,
+    "$T_DRAGON": 1,
+    "$T_FAIRY": -2
+  },
+  "$T_DARK": {
+    "$T_FIGHTING": -1,
+    "$T_GHOST": 1,
+    "$T_PSYCHIC": 1,
+    "$T_DARK": -1,
+    "$T_FAIRY": -1
+  },
+  "$T_FAIRY": {
+    "$T_FIGHTING": 1,
+    "$T_POISON": -1,
+    "$T_STEEL": -1,
+    "$T_FIRE": -1,
+    "$T_DRAGON": 1,
+    "$T_DARK": 1
+  }
+}
