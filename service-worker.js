@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Pokemon-index/precache-manifest.af5c3c1ae283dc7f16420bb0c9c5f7b7.js"
+  "/Pokemon-index/precache-manifest.b815dc3599d4a93ac7faf9b0aebc9aba.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "pm-index"});

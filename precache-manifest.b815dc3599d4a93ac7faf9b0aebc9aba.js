@@ -4,15 +4,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Pokemon-index/attack-effectiveness.json"
   },
   {
-    "revision": "9f2b62a6d2892d1d0840",
-    "url": "/Pokemon-index/css/app.89285436.css"
+    "revision": "c05ccbf9bb0c44be2756",
+    "url": "/Pokemon-index/css/app.1d13b9a8.css"
   },
   {
-    "revision": "82f10440566041a6c4dc",
+    "revision": "b7e6435491865fee8120",
     "url": "/Pokemon-index/css/move.bd752a39.css"
   },
   {
-    "revision": "ceb05afb5abfced28516",
+    "revision": "4c26564700ccb4704cd3",
     "url": "/Pokemon-index/css/pokemon.101311d9.css"
   },
   {
@@ -244,24 +244,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Pokemon-index/img/weather/windy.png"
   },
   {
-    "revision": "a2a4f2417b6236b78ff29c1ac00fd510",
+    "revision": "6ff0609630483f30add88c55dc328e30",
     "url": "/Pokemon-index/index.html"
   },
   {
-    "revision": "9f2b62a6d2892d1d0840",
-    "url": "/Pokemon-index/js/app.bcd3db80.js"
+    "revision": "c05ccbf9bb0c44be2756",
+    "url": "/Pokemon-index/js/app.b04c8dda.js"
   },
   {
-    "revision": "551541089b48e5a3dc25",
-    "url": "/Pokemon-index/js/chunk-vendors.c5c0b6b1.js"
+    "revision": "138bdef7e030ad1ae930",
+    "url": "/Pokemon-index/js/chunk-vendors.64cf1af4.js"
   },
   {
-    "revision": "82f10440566041a6c4dc",
-    "url": "/Pokemon-index/js/move.92b94cce.js"
+    "revision": "b7e6435491865fee8120",
+    "url": "/Pokemon-index/js/move.20f3a808.js"
   },
   {
-    "revision": "ceb05afb5abfced28516",
-    "url": "/Pokemon-index/js/pokemon.6cea4524.js"
+    "revision": "4c26564700ccb4704cd3",
+    "url": "/Pokemon-index/js/pokemon.8252f6c4.js"
   },
   {
     "revision": "47793f5e8e0c7902707672a3da050a35",
