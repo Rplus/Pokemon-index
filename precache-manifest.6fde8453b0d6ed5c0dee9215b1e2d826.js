@@ -4,16 +4,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Pokemon-index/attack-effectiveness.json"
   },
   {
-    "revision": "c05ccbf9bb0c44be2756",
-    "url": "/Pokemon-index/css/app.1d13b9a8.css"
+    "revision": "e5c2414d0683b07a4dad",
+    "url": "/Pokemon-index/css/app.b23012f6.css"
   },
   {
-    "revision": "b7e6435491865fee8120",
+    "revision": "01d168cfeb1ce25723b2",
     "url": "/Pokemon-index/css/move.bd752a39.css"
   },
   {
-    "revision": "4c26564700ccb4704cd3",
-    "url": "/Pokemon-index/css/pokemon.101311d9.css"
+    "revision": "6ffea5613a766c7ca25c",
+    "url": "/Pokemon-index/css/pokemon.9d48db95.css"
   },
   {
     "revision": "7872e75acdaac82d67e9d2dd619e70a1",
@@ -244,24 +244,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Pokemon-index/img/weather/windy.png"
   },
   {
-    "revision": "6ff0609630483f30add88c55dc328e30",
+    "revision": "d36811ca50cbfefbdc4ecc1ff366aa98",
     "url": "/Pokemon-index/index.html"
   },
   {
-    "revision": "c05ccbf9bb0c44be2756",
-    "url": "/Pokemon-index/js/app.b04c8dda.js"
+    "revision": "e5c2414d0683b07a4dad",
+    "url": "/Pokemon-index/js/app.27087873.js"
   },
   {
-    "revision": "138bdef7e030ad1ae930",
-    "url": "/Pokemon-index/js/chunk-vendors.64cf1af4.js"
+    "revision": "e7a4b38940d1d593209c",
+    "url": "/Pokemon-index/js/chunk-vendors.9e590351.js"
   },
   {
-    "revision": "b7e6435491865fee8120",
-    "url": "/Pokemon-index/js/move.20f3a808.js"
+    "revision": "01d168cfeb1ce25723b2",
+    "url": "/Pokemon-index/js/move.e948ba5f.js"
   },
   {
-    "revision": "4c26564700ccb4704cd3",
-    "url": "/Pokemon-index/js/pokemon.8252f6c4.js"
+    "revision": "6ffea5613a766c7ca25c",
+    "url": "/Pokemon-index/js/pokemon.5e4b639b.js"
   },
   {
     "revision": "47793f5e8e0c7902707672a3da050a35",
@@ -274,6 +274,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "500b32b489128ddfac56ac1a17104bfe",
     "url": "/Pokemon-index/pm-index.min.json"
+  },
+  {
+    "revision": "099feef7f2250901d6cc5a4ef1fa8807",
+    "url": "/Pokemon-index/pm-legacy-moves.min.json"
   },
   {
     "revision": "b0d984c1179ab4ebcc582a5db0b1d383",
